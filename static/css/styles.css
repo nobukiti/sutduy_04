@@ -1,0 +1,364 @@
+@charset "UTF-8";
+body {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  font-size: 12px;
+}
+
+#container {
+  display: grid;
+  grid-template-rows: 50px 200px 300px 158px 1000px 500px;
+  grid-template-columns: 120px 1fr 250px 120px;
+  grid-template-areas: "header header       header   header" "...... lesson__list notice   ......" "...... lesson__list profile  ......" "...... lesson__list calendar ......" "...... lesson__list ........ ......" "footer footer       footer   footer";
+}
+
+#header {
+  grid-area: header;
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 0 4px black;
+  font-size: 16px;
+}
+#header ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0 0 0 0;
+  width: 100%;
+}
+#header ul .site__logo {
+  background-color: white;
+  height: 50px;
+  width: 150px;
+  background-image: url(../images/logo_03.png);
+  background-position: center;
+  background-size: 10em;
+  background-repeat: no-repeat;
+}
+#header ul li a {
+  text-decoration: none;
+  color: #3366ff;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+#header ul li a:hover {
+  color: blue;
+  background-color: #ccffff;
+}
+#header ul li:nth-child(n+2):nth-child(-n+4) {
+  flex-basis: 150px;
+  background-color: white;
+}
+#header ul li:nth-child(5) {
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+#header ul li:nth-child(5) div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 200px;
+}
+#header ul li:nth-child(5) div .search__box {
+  padding: 0;
+  border-radius: 15px;
+}
+#header ul li:nth-child(5) div .search__box:focus {
+  outline: none;
+}
+#header ul li:nth-child(5) div .search__box::placeholder {
+  text-align: center;
+}
+#header ul li:nth-child(5) div .search__button {
+  padding: 10px;
+  border: double 3px #ccffff;
+  border-radius: 15px;
+  background-color: #ccccff;
+  width: 30px;
+  height: 30px;
+  background-image: url(../images/search_01.png);
+  background-size: 1.3em;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#header ul li:nth-child(5) div .search__button:focus {
+  outline: none;
+}
+#header ul li:nth-child(5) div .search__button:hover {
+  background-color: #5fc2f5;
+}
+#header ul li:nth-child(6) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 150px;
+  background-color: white;
+}
+#header ul li:nth-child(6) div {
+  display: inline-block;
+  border: solid 1px #bbb;
+  border-radius: 100px;
+  height: 30px;
+  width: 30px;
+  background-image: url(../images/スライム.jpeg);
+  background-position: center;
+  background-size: 31.5px;
+  background-repeat: no-repeat;
+}
+#header ul li:nth-child(6) span {
+  color: #3366ff;
+  border-bottom: dashed 1px blue;
+  margin-left: 10px;
+}
+
+#lesson__list {
+  grid-area: lesson__list;
+  background-color: white;
+}
+#lesson__list .pankuzu {
+  padding: 1px 19px;
+  margin: 2em auto;
+  color: #2c2c2f;
+  background: #cde4ff;
+  border: solid 2px #5988cf98;
+  border-radius: 10px;
+  width: 90%;
+}
+#lesson__list .pankuzu > p {
+  margin: 0;
+  padding: 0;
+}
+#lesson__list > p {
+  font-weight: bold;
+  text-align: left;
+  margin-left: 5%;
+  width: 300px;
+  border-bottom: double 1px #bbb;
+}
+
+.rightbar_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: white;
+  letter-spacing: 0.5em;
+  background-color: #5fc2f5;
+  padding: 10px;
+}
+
+#notice {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-top: 20px;
+  grid-area: notice;
+  background-color: #ccccff;
+}
+#notice .notice_image {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+  background-image: url(../images/notice.png);
+  background-position: center;
+  background-size: 31.5px;
+  background-repeat: no-repeat;
+}
+#notice ul {
+  padding: 0;
+  font-size: 12px;
+}
+#notice ul li {
+  list-style: none;
+}
+
+#profile {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  grid-area: profile;
+  background-color: orange;
+  margin-top: 10px;
+}
+#profile .profile_image {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+  background-image: url(../images/profile.png);
+  background-position: center;
+  background-size: 37.5px;
+  background-repeat: no-repeat;
+}
+
+#calendar {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  grid-area: calendar;
+  background-color: orchid;
+  margin-top: 10px;
+}
+#calendar .calendar_image {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+  background-image: url(../images/calendar.png);
+  background-position: center;
+  background-size: 31.5px;
+  background-repeat: no-repeat;
+}
+#calendar .set_calendar .calendar_table {
+  background-color: #eee;
+  width: 100%;
+}
+#calendar .set_calendar .date {
+  color: black;
+  text-align: center;
+}
+#calendar .set_calendar .date:hover {
+  background-color: #5fc2f5;
+  border-radius: 5px;
+}
+#calendar .set_calendar .date_header {
+  text-align: center;
+  background-color: #9ee4ff;
+}
+#calendar .set_calendar .date_header > td, #calendar .set_calendar .date_header th {
+  border-radius: 3px;
+}
+#calendar .set_calendar .date_header > td:hover, #calendar .set_calendar .date_header th:hover {
+  background-color: #5fc2f5;
+  border-radius: 3px;
+  cursor: pointer;
+}
+#calendar .set_calendar .sunday {
+  color: red;
+}
+#calendar .set_calendar .saturday {
+  color: blue;
+}
+#calendar .set_calendar .today {
+  background-color: #67f5ff;
+  border-radius: 5px;
+}
+
+#footer {
+  grid-area: footer;
+  background-color: peru;
+}
+
+.tabs {
+  padding-bottom: 40px;
+  background-color: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  width: 95%;
+  height: 1000px;
+  margin: 40px auto;
+  /*タブのスタイル*/
+  /*ラジオボタンを全て消す*/
+  /*タブ切り替えの中身のスタイル*/
+  /*選択されているタブのスタイルを変える*/
+}
+.tabs .tab_item {
+  margin-top: -20px;
+  width: calc(100%/6);
+  height: 50px;
+  border-bottom: 3px solid #5ca8e6;
+  background-color: skyblue;
+  line-height: 50px;
+  font-size: 12px;
+  text-align: center;
+  color: #565656;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.tabs .tab_item:hover {
+  background-color: #5ca8e6;
+  color: white;
+}
+.tabs input[name="tab_item"] {
+  display: none;
+}
+.tabs .tab_content {
+  display: none;
+  padding: 40px 40px 0;
+  clear: both;
+  overflow: hidden;
+}
+.tabs input:checked + .tab_item {
+  background-color: #5ca8e6;
+  color: #fff;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+/*選択されているタブのコンテンツのみを表示*/
+#grade__1:checked ~ #grade__1_content,
+#grade__2:checked ~ #grade__2_content,
+#grade__3:checked ~ #grade__3_content,
+#grade__4:checked ~ #grade__4_content,
+#grade__5:checked ~ #grade__5_content,
+#grade__6:checked ~ #grade__6_content {
+  display: block;
+}
+
+.tab_content_subject .lesson__list__table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+.tab_content_subject .lesson__list__table .subject {
+  text-align: center;
+  background-color: #98dbcd;
+  letter-spacing: 20px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.tab_content_subject .lesson__list__table th {
+  text-align: left;
+  padding: 15px 30px;
+}
+.tab_content_subject .lesson__list__table tr {
+  width: 100%;
+  border-bottom: solid 1px #eee;
+}
+.tab_content_subject .lesson__list__table .table__focus:hover {
+  background-color: #d4f0fd;
+  cursor: pointer;
+}
+.tab_content_subject .lesson__list__table td {
+  text-align: left;
+  padding: 15px 30px;
+}
+.tab_content_subject .lesson__list__table td .icon {
+  background-size: 35px;
+  background-position: left 5px center;
+  background-repeat: no-repeat;
+  padding-left: 30px;
+}
+.tab_content_subject .lesson__list__table td .icon.bird {
+  background-image: url(icon-bird.png);
+}
+.tab_content_subject .lesson__list__table td .icon.whale {
+  background-image: url(icon-whale.png);
+}
+.tab_content_subject .lesson__list__table td .icon.crab {
+  background-image: url(icon-crab.png);
+}
+
+/*# sourceMappingURL=styles.css.map */

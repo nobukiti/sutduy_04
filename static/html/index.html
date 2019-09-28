@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>study_04</title>
+  <link href="../css/styles.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <nav id="header">
+      <ul>
+        <li><a href="/"><div class="site__logo"></div></a></li>
+        <li><a href="/">マイページ</a></li>
+        <li><a href="/">問題一覧</a></li>
+        <li><a href="/">問題投稿</a></li>
+        <li class="search__area">
+          <div>
+            <input type="text" class="search__box" placeholder="問題を検索">
+            <input type="button" class="search__button">
+          </div>
+        </li>
+        <li class="my__icon">
+          <div></div>
+          <span>taiga</span>
+        </li>
+      </ul>
+    </nav>
+
+    <!--  lesson__list -->
+    <div id="lesson__list">
+      <div class="pankuzu">
+        <p>マイページ > xxx</p>
+      </div>
+      <p>taigaさんのマイページ</p>
+      <div class="tabs">
+        <input id="grade__1" type="radio" name="tab_item" checked>
+        <label class="tab_item" for="grade__1">１年生</label>
+        <input id="grade__2" type="radio" name="tab_item">
+        <label class="tab_item" for="grade__2">２年生</label>
+        <input id="grade__3" type="radio" name="tab_item">
+        <label class="tab_item" for="grade__3">３年生</label>
+        <input id="grade__4" type="radio" name="tab_item">
+        <label class="tab_item" for="grade__4">４年生</label>
+        <input id="grade__5" type="radio" name="tab_item">
+        <label class="tab_item" for="grade__5">５年生</label>
+        <input id="grade__6" type="radio" name="tab_item">
+        <label class="tab_item" for="grade__6">６年生</label>
+
+        <div class="tab_content" id="grade__1_content">
+          <div class="tab_content_description">
+            <div class="tab_content_subject">
+              <!-- <span class="box_title">算数</span> -->
+              <table class="lesson__list__table">
+                  <tr>
+                    <th class="subject" colspan="3">算数</th>
+                  </tr>
+                  <tr>
+                    <th>レッスン名</th>
+                    <th>難易度</th>
+                    <th>ステータス</th>
+                  </tr>
+                  <tr class="table__focus">
+                    <td class="icon bird">#01.ひと桁同士の足し算</td>
+                    <td>⭐️</td>
+                    <td>(11/100)完了</td>
+                  </tr>
+                   <tr class="table__focus">
+                    <td class="icon bird">#02.ひと桁同士の引き算</td>
+                    <td>⭐⭐️️⭐️️⭐️️️️️️️️️️️️️️️️️️</td>
+                    <td>(11/100)完了</td>
+                  </tr>
+                    <tr class="table__focus">
+                    <td class="icon bird">#01.ひと桁同士の足し算</td>
+                    <td>⭐️</td>
+                    <td>(11/100)完了</td>
+                   <tr class="table__focus">
+                    <td class="icon bird">#01.ひと桁同士の足し算</td>
+                    <td>⭐️</td>
+                    <td>(11/100)完了</td>
+                  </tr>
+                   <tr class="table__focus">
+                    <td class="icon bird">#01.ひと桁同士の足し算</td>
+                    <td>⭐️</td>
+                    <td>(11/100)完了</td>
+                  </tr>
+                    <tr class="table__focus">
+                    <td class="icon bird">#01.ひと桁同士の足し算</td>
+                    <td>⭐️</td>
+                    <td>(11/100)完了</td>
+                  </tr>
+                    <tr class="table__focus">
+                    <td class="icon bird">#01.ひと桁同士の足し算</td>
+                    <td>⭐️</td>
+                    <td>(11/100)完了</td>
+                  </tr>
+                   <tr class="table__focus">
+                    <td class="icon bird">#01.ひと桁同士の足し算</td>
+                    <td>⭐️</td>
+                    <td>(11/100)完了</td>
+                  </tr>
+                    <tr class="table__focus">
+                    <td class="icon bird">#01.ひと桁同士の足し算</td>
+                    <td>⭐️</td>
+                    <td>(11/100)完了</td>
+             </table>
+            </div>
+          </div>
+        </div>
+        <div class="tab_content" id="grade__2_content">
+          <div class="tab_content_description">
+            <p class="c-txtsp">２年生の問題</p>
+          </div>
+        </div>
+        <div class="tab_content" id="grade__3_content">
+          <div class="tab_content_description">
+            <p class="c-txtsp">３年生の問題</p>
+          </div>
+        </div>
+        <div class="tab_content" id="grade__4_content">
+          <div class="tab_content_description">
+            <p class="c-txtsp">４年生の問題</p>
+          </div>
+        </div>
+        <div class="tab_content" id="grade__5_content">
+          <div class="tab_content_description">
+            <p class="c-txtsp">５年生の問題</p>
+          </div>
+        </div>
+        <div class="tab_content" id="grade__6_content">
+          <div class="tab_content_description">
+            <p class="c-txtsp">６年生の問題</p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <!--  lesson__list -->
+
+    <div id="notice">
+      <div class="rightbar_title">
+        <div class="notice_image">
+        </div>
+        お知らせ
+      </div>
+      <div>
+        <ul>
+          <li><span>9/30</span><span>新機能「検索機能」をリリースしました！</span></li>
+          <li><span>10/30</span><span>新機能「検索機能」をリリースしました！</span></li>
+        </ul>
+      </div>
+    </div>
+    <div id="profile">
+      <div class="rightbar_title">
+        <div class="profile_image"></div>
+        プロフィール
+      </div>
+      <div>profile_1</div>
+      <ul>
+        <li>li_1</li>
+        <li>li_2</li>
+        <li>li_3</li>
+      </ul>
+    </div>
+    <div id="calendar">
+      <div class="rightbar_title">
+        <div class="calendar_image"></div>
+        学習カレンダー
+      </div>
+      <div class="set_calendar">
+      </div>
+    </div>
+    <div id="footer">footer</div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="../js/calendar.js"></script>
+  <!-- <script src="../js/drawer.js"></script> -->
+</body>
+</html>

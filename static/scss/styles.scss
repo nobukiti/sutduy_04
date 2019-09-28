@@ -1,0 +1,479 @@
+$headerHeight: 50px;
+$noticeHeight: 200px;
+$profileHeight: 300px;
+$calendarHeight: 158px;
+$blankHeight: 1000px;
+$lesson__listHeight: $noticeHeight + $profileHeight + $calendarHeight + $blankHeight;
+$footerHeight: 500px;
+
+$headerWidth: 100%;
+// $lessonlistWidth: 800px;
+$rightbarWidth: 250px;
+$sideblankWidth: 120px;
+
+// ロゴ画像サイズ
+$logoHeight: 50px;
+$logoWidth: 150px;
+
+// アイコン画像サイズ
+$iconSize: 150px;
+
+@mixin display_flex() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin border_top_radius($r:5px) {
+  border-top-left-radius: $r;
+  border-top-right-radius: $r;
+}
+
+body {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  font-size: 12px;
+}
+
+#container {
+  display: grid;
+  grid-template-rows: $headerHeight $noticeHeight $profileHeight $calendarHeight $blankHeight $footerHeight;
+  grid-template-columns: $sideblankWidth 1fr $rightbarWidth $sideblankWidth;
+  grid-template-areas:
+    "header header       header   header"
+    "...... lesson__list notice   ......"
+    "...... lesson__list profile  ......"
+    "...... lesson__list calendar ......"
+    "...... lesson__list ........ ......"
+    "footer footer       footer   footer"
+}
+
+// header開始
+#header {
+  grid-area: header;
+  background-color: white;
+  // 固定化
+  position: fixed;
+  width: $headerWidth;
+  z-index: 100;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 100);
+  font-size: 16px;
+
+  ul {
+    // // 子要素のliを横並び
+    display: flex;
+    // // ulそのものをヘッダー領域に対して中央揃え
+    justify-content: center;
+    list-style: none;
+    // @include display_flex();
+    // ul全体を中央寄せ
+    margin: 0 auto;
+    padding: 0 0 0 0;
+    // left-barからright-barまでをヘッダーの表示領域とする
+    width: 100%;
+    // width: 800px + $rightbarWidth;
+
+    .site__logo {
+      background-color: white;
+      height: $logoHeight;
+      width: $logoWidth;
+      background-image: url(../images/logo_03.png);
+      background-position: center;
+      background-size: 10em;
+      background-repeat: no-repeat;
+    }
+
+    li {
+      // 複数指定したい場合は以下のような書き方もあり
+      // &:nth-child(2) ,
+      // &:nth-child(3) {
+      // 2-4番目の要素を指定
+
+      a {
+        text-decoration: none;
+        color: #3366ff;
+        font-weight: bold;
+        
+        //中央揃え
+        @include display_flex();
+
+        // 高さを持たせる事でli全体をクリック可能領域にする
+        height: 100%;
+        width: 100%;
+
+        &:hover {
+          color: blue;
+          background-color: #ccffff;
+        }
+      }
+      // マイページ〜問題投稿
+      &:nth-child(n+2):nth-child(-n+4) {
+        flex-basis: 150px;
+        background-color: white;
+      }
+      // 検索ボックス(li要素) 
+      &:nth-child(5) {
+        background-color: white;
+        display: flex;
+        align-items: center;
+        div {
+          @include display_flex();
+          flex-basis: 200px;
+
+          .search {
+            &__box {
+              padding: 0;
+              border-radius: 15px;
+              &:focus {
+                outline: none;
+              }
+              &::placeholder {
+                text-align: center;
+              }
+            }
+            &__button {
+              padding: 10px;
+              border: double 3px #ccffff;
+              border-radius: 15px;
+              background-color: #ccccff;
+              width: 30px;
+              height: 30px;
+              background-image: url(../images/search_01.png);
+              background-size: 1.3em;
+              background-position: center;
+              background-repeat: no-repeat;
+              &:focus {
+                outline: none;
+              }
+              &:hover {
+                background-color: #5fc2f5;
+              }
+            }
+          }
+        }
+      }
+      &:nth-child(6) {
+        @include display_flex();
+        flex-basis: 150px;
+        background-color: white;
+        div {
+          // @include display_flex();
+          display: inline-block;
+          border: solid 1px #bbb;
+          border-radius: 100px;
+          height: ($iconSize * 0.2);
+          width: ($iconSize* 0.2);
+          background-image: url(../images/スライム.jpeg);
+          background-position: center;
+          background-size: ($iconSize * 0.21);
+          background-repeat: no-repeat;
+        }
+        span {
+          color: #3366ff;
+          border-bottom: dashed 1px blue;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+// heade終了
+
+#lesson__list{
+  grid-area: lesson__list;
+  background-color: white;
+
+  .pankuzu {
+    padding: 1px 19px;
+    margin: 2em auto;
+    color: #2c2c2f;
+    background: #cde4ff;
+    border: solid 2px #5988cf98;
+    border-radius: 10px;
+    width: 90%;
+
+    & > p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  & > p {
+    font-weight: bold;
+    text-align: left;
+    margin-left: 5%;
+    width: 300px;
+    border-bottom: double 1px #bbb;
+  }
+}
+
+.rightbar_title {
+  @include display_flex();
+  @include border_top_radius();
+  font-weight: bold;
+  font-size: 1.2em;
+  color: white;
+  letter-spacing: 0.5em;
+  // background-color: #40ca57;
+  background-color: #5fc2f5;
+  padding: 10px;
+}
+
+#notice {
+  @include border_top_radius();
+  margin-top: 20px;
+  grid-area: notice;
+  background-color: #ccccff;
+  // 固定にしたければ以下を追加
+  // position: sticky;
+  // top: 50px;
+  // z-index: 10;
+
+  .notice_image {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    background-image: url(../images/notice.png);
+    background-position: center;
+    background-size: ($iconSize * 0.21);
+    background-repeat: no-repeat;
+  }
+
+  ul {
+    padding: 0;
+    font-size: 12px;
+    li {
+      list-style: none;
+    }
+  }
+}
+
+#profile {
+  @include border_top_radius();
+  grid-area: profile;
+  background-color: orange;
+  margin-top: 10px;
+
+  .profile_image {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    background-image: url(../images/profile.png);
+    background-position: center;
+    background-size: ($iconSize * 0.25);
+    background-repeat: no-repeat;
+  }
+}
+
+#calendar {
+  @include border_top_radius();
+  grid-area: calendar;
+  background-color: orchid;
+  margin-top: 10px;
+
+  .calendar_image {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    background-image: url(../images/calendar.png);
+    background-position: center;
+    background-size: ($iconSize * 0.21);
+    background-repeat: no-repeat;
+  }
+  .set_calendar {
+    .calendar_table {
+      background-color: #eee;
+      width: 100%;
+    }
+
+    .date {
+      color: black;
+      text-align: center;
+
+      &:hover {
+        background-color: #5fc2f5;
+        border-radius: 5px;
+      }
+    }
+
+    .date_header {
+      text-align: center;
+      background-color: #9ee4ff;
+
+      // ◀︎▶︎と年月
+      & > td, th {
+        border-radius: 3px;
+
+        &:hover {
+          background-color: #5fc2f5;
+          border-radius: 3px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .sunday {
+      color: red;
+    }
+
+    .saturday {
+      color: blue;
+    }
+
+    .today {
+      background-color: rgb(103, 245, 255);
+      border-radius: 5px;
+    }
+  }
+}
+
+#footer {
+  grid-area: footer;
+  background-color: peru;
+}
+
+
+// lesson__listのtab
+.tabs {
+  padding-bottom: 40px;
+  background-color: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  width: 95%;
+  height: 1000px;
+  margin: 40px auto;
+
+  /*タブのスタイル*/
+  .tab_item {
+    margin-top: -20px;
+    width: calc(100%/6);
+    height: 50px;
+    border-bottom: 3px solid #5ca8e6;
+    background-color: skyblue;
+    line-height: 50px;
+    font-size: 12px;
+    text-align: center;
+    color: #565656;
+    display: block;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    
+    &:hover {
+      // opacity: 0.75;
+      background-color: #5ca8e6;
+      color: white;
+    }
+  }
+
+  /*ラジオボタンを全て消す*/
+  input[name="tab_item"] {
+    display: none;
+  }
+  
+  /*タブ切り替えの中身のスタイル*/
+  .tab_content {
+    display: none;
+    padding: 40px 40px 0;
+    clear: both;
+    overflow: hidden;
+  }
+  /*選択されているタブのスタイルを変える*/
+  // checkedになっているタブの直後の弟要素に適用
+  input:checked + .tab_item {
+    background-color: #5ca8e6;
+    color: #fff;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+}
+
+// idは子要素にしない。するとうまく動作しない？
+/*選択されているタブのコンテンツのみを表示*/
+#grade__1:checked ~ #grade__1_content,
+#grade__2:checked ~ #grade__2_content,
+#grade__3:checked ~ #grade__3_content,
+#grade__4:checked ~ #grade__4_content,
+#grade__5:checked ~ #grade__5_content,
+#grade__6:checked ~ #grade__6_content {
+  display: block;
+}
+
+// table開始
+.tab_content_subject {
+  // position: relative;
+  // margin: 2em 0;
+  // padding: 0.5em 1em;
+  // border: solid 3px #62c1ce;
+
+  // table {
+  .lesson__list__table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+
+    .subject {
+      text-align: center;
+      background-color: rgb(152, 219, 205);
+      letter-spacing: 20px;
+      font-size: 16px;
+      border-radius: 5px;
+
+      // .math {
+      //   height: 30px;
+      //   width: 30px;
+      //   background-image: url('../images/math.png');
+      //   background-position: center;
+      //   background-size: ($iconSize * 0.21);
+      //   background-repeat: no-repeat;
+      // }
+    }
+
+    th {
+      text-align: left;
+      // margin-left: 20px;
+      padding: 15px 30px;
+    }
+
+    tr{
+      width: 100%;
+      border-bottom: solid 1px #eee;
+    }
+    .table__focus:hover {
+      background-color: #d4f0fd;
+      cursor: pointer;
+    }
+ 
+    td {
+      text-align: left;
+      // margin-left: 20px;
+      // width: 25%;
+      // padding: 15px 0;
+      padding: 15px 30px;
+
+      .icon {
+        background-size: 35px;
+        background-position: left 5px center;
+        background-repeat: no-repeat;
+        padding-left: 30px;
+
+        &.bird {
+          background-image: url(icon-bird.png)
+        }
+
+        &.whale {
+        background-image: url(icon-whale.png)
+        }
+
+        &.crab {
+          background-image: url(icon-crab.png)
+        }
+      }
+    }
+  }
+}
+
