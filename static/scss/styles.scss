@@ -1,6 +1,6 @@
 $headerHeight: 50px;
 $noticeHeight: 200px;
-$profileHeight: 300px;
+$profileHeight: 290px;
 $calendarHeight: 158px;
 $blankHeight: 1000px;
 $lesson__listHeight: $noticeHeight + $profileHeight + $calendarHeight + $blankHeight;
@@ -223,7 +223,7 @@ body {
   @include border_top_radius();
   margin-top: 20px;
   grid-area: notice;
-  background-color: #ccccff;
+  background-color: #eee;
   // 固定にしたければ以下を追加
   // position: sticky;
   // top: 50px;
@@ -239,11 +239,29 @@ body {
     background-repeat: no-repeat;
   }
 
-  ul {
-    padding: 0;
-    font-size: 12px;
-    li {
-      list-style: none;
+  table {
+    border-collapse: collapse;
+    // border-spacing: 0;
+    width: 100%;
+
+    tr {
+
+      &:hover {
+        background-color: #bcbce2;
+        // border-bottom: dashed 1px rgb(105, 105, 32);
+        cursor: pointer;
+      }
+
+      .notice_date {
+        text-align: right;
+        padding: 3px;
+        // padding-top: 7px;
+     }
+
+      .notice_title {
+        text-align: left;
+        padding: 3px;
+      }
     }
   }
 }
@@ -251,7 +269,7 @@ body {
 #profile {
   @include border_top_radius();
   grid-area: profile;
-  background-color: orange;
+  background-color: #eee;
   margin-top: 10px;
 
   .profile_image {
@@ -263,12 +281,62 @@ body {
     background-size: ($iconSize * 0.25);
     background-repeat: no-repeat;
   }
+
+  .profile_icon {
+    height: 80px;
+    width: 80px;
+    margin-left: 30px;
+    margin-top: 30px;
+    background-image: url(../images/スライム.jpeg);
+    background-position: center;
+    background-size: ($iconSize * 0.45);
+    background-repeat: no-repeat;
+    background-color: white;
+    border-radius: 50%;
+  }
+
+  table {
+    margin: 5px;
+
+    .top_status {
+      padding-right: 11px;
+    }
+    tr {
+      // background-color: #64ca8b;
+      background-color: rgb(152, 219, 205);
+      th, td {
+        border-radius: 5px;
+      }
+    }
+  }
+
+  ul {
+    padding: 0px;
+    margin-left: 3px;
+    font-size: 0.9em;
+  }
+  .status_1 {
+    list-style: none;
+    margin-top: 3px;
+  }
+
+  .bottom_status {
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+
+    .th, td {
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: skyblue;
+    }
+  }
 }
 
 #calendar {
   @include border_top_radius();
   grid-area: calendar;
-  background-color: orchid;
+  // background-color: orchid;
   margin-top: 10px;
 
   .calendar_image {
@@ -444,6 +512,7 @@ body {
       border-bottom: solid 1px #eee;
     }
     .table__focus:hover {
+      // background-color: #d4f;
       background-color: #d4f0fd;
       cursor: pointer;
     }

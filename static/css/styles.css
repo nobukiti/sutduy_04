@@ -7,7 +7,7 @@ body {
 
 #container {
   display: grid;
-  grid-template-rows: 50px 200px 300px 158px 1000px 500px;
+  grid-template-rows: 50px 200px 290px 158px 1000px 500px;
   grid-template-columns: 120px 1fr 250px 120px;
   grid-template-areas: "header header       header   header" "...... lesson__list notice   ......" "...... lesson__list profile  ......" "...... lesson__list calendar ......" "...... lesson__list ........ ......" "footer footer       footer   footer";
 }
@@ -163,7 +163,7 @@ body {
   border-top-right-radius: 5px;
   margin-top: 20px;
   grid-area: notice;
-  background-color: #ccccff;
+  background-color: #eee;
 }
 #notice .notice_image {
   height: 30px;
@@ -174,19 +174,28 @@ body {
   background-size: 31.5px;
   background-repeat: no-repeat;
 }
-#notice ul {
-  padding: 0;
-  font-size: 12px;
+#notice table {
+  border-collapse: collapse;
+  width: 100%;
 }
-#notice ul li {
-  list-style: none;
+#notice table tr:hover {
+  background-color: #bcbce2;
+  cursor: pointer;
+}
+#notice table tr .notice_date {
+  text-align: right;
+  padding: 3px;
+}
+#notice table tr .notice_title {
+  text-align: left;
+  padding: 3px;
 }
 
 #profile {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   grid-area: profile;
-  background-color: orange;
+  background-color: #eee;
   margin-top: 10px;
 }
 #profile .profile_image {
@@ -198,12 +207,54 @@ body {
   background-size: 37.5px;
   background-repeat: no-repeat;
 }
+#profile .profile_icon {
+  height: 80px;
+  width: 80px;
+  margin-left: 30px;
+  margin-top: 30px;
+  background-image: url(../images/スライム.jpeg);
+  background-position: center;
+  background-size: 67.5px;
+  background-repeat: no-repeat;
+  background-color: white;
+  border-radius: 50%;
+}
+#profile table {
+  margin: 5px;
+}
+#profile table .top_status {
+  padding-right: 11px;
+}
+#profile table tr {
+  background-color: #98dbcd;
+}
+#profile table tr th, #profile table tr td {
+  border-radius: 5px;
+}
+#profile ul {
+  padding: 0px;
+  margin-left: 3px;
+  font-size: 0.9em;
+}
+#profile .status_1 {
+  list-style: none;
+  margin-top: 3px;
+}
+#profile .bottom_status {
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+}
+#profile .bottom_status .th, #profile .bottom_status td {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: skyblue;
+}
 
 #calendar {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   grid-area: calendar;
-  background-color: orchid;
   margin-top: 10px;
 }
 #calendar .calendar_image {
